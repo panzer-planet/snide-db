@@ -4,7 +4,7 @@
 
 ##### Introduction
 Do you like the idea of an ORM that takes under 30 seconds to configure
-and provides full object orientated access? Look no further! CoboltDB is
+and provides full object orientated access? Look no further! snide-db is
 the easiest and fastest to configure ORM out there.
 
 ##### Features
