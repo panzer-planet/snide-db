@@ -1,6 +1,9 @@
 ### snide-db
 
-> Yet another take on ORM - Werner Roets
+> I couldn't anything else that is easy to configure and use that provided me with
+> full object oriented access. I just wanted to represent tables as objects and get
+> MySQL out the way and I was tired of convoluted rubbish. So here is some unconvoluted
+> rubbish. Here is my take on ORM.
 
 # Saving is easy!
 ```php
@@ -12,7 +15,7 @@ $id = $user->save(); // Save!
 $user = new SDB\User("John",5);
 $user->save();
 ```
-# Loading is easy
+# Loading is easy!
 ```php
 // To load by primary key:
 $produt = new SDB\Product($id);
