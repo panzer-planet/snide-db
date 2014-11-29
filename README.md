@@ -1,9 +1,44 @@
-### CoboltDB
+### snide-db
 
 > Yet another take on ORM - Werner Roets
 
+# Saving is easy!
+```php
+$user = new SDB\User(); // Just create table object!
+$user->name = "Trevor"; //Set values according to columns!
+$user->age = 66
+$id = $user->save(); // Save!
+//or even more simply
+$user = new SDB\User("John",5);
+$user->save();
+```
+# Loading is easy
+```php
+// To load by primary key:
+$produt = new SDB\Product($id);
+echo $product->name;
+//or you can iterate through properties
+foreach($product as $column){
+	echo $column;
+}
+```
+# Getting many rows is easy
+```php
+//
+$products = new ProductCollection(); // Create a collection object!
+$products->sort_by(['name' => 'asc', 'category' => 'desc']) // You can sort on multiple columns!
+->load_where_like(name, "%N"); // You can add where clauses easily!
+
+foreach ( $products as $product){
+	echo $product->name; // Inside are table objects!
+	$product->quanitity = 0; // Everything out of stock!
+}
+$products->save(); // Update again!
+
+```
+
 ##### Introduction
-Do you like the idea of an ORM that takes under 30 seconds to configure
+Do you like the idea of an ORM that has almost nothing to configure
 and provides full object orientated access? Look no further! snide-db is
 the easiest and fastest to configure ORM out there.
 
@@ -37,7 +72,7 @@ Support for joins
 1. Place the folder that contains this readme in a web-accessible directory.
 
 1. In your application (perhaps `/var/www/index.php`) add:
- include `'cobolt-db/autoload.php'`;
+ include `'snide-db/autoload.php'`;
 1. Edit `config.php` so that your timezone and database settings are correct.
 1. From the command line, generate the supporting files using `cmd.php`. For example if your database contains the tables: 
 	`users`, `posts` and `messages`, run the following command:
@@ -46,11 +81,3 @@ Support for joins
 	
 CoboltDB is now configured and you can begin using the database.
 
-##### Example
-```php
-$user = new CDB\Users();
-$user->name = "John";
-$id = $user->save();
-$user = nw CDB\Users($id);
-echo $user->name;
-```
